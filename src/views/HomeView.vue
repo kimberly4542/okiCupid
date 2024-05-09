@@ -2,7 +2,7 @@
     <div :style="{ backgroundColor: bgColor }">
         <Navbar :bgColor="bgColor" @toggleSignIn="toggleSignIn"/>
         <div>
-            <TwoInOne :visit="'/about'" :btnName="'JOIN OKCUPID'"  />
+            <TwoInOne  :btnName="'JOIN OKCUPID'"  />
         </div>
     </div>
 </template>
