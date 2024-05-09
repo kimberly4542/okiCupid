@@ -7,7 +7,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 
 import { RouterView} from 'vue-router';
 import TheFooter from './components/TheFooter.vue'
@@ -29,11 +28,11 @@ import TheFooter from './components/TheFooter.vue'
 
 // const { toggleSignIn } = defineEmits(['toggleSignIn']);
 
-const showSignInForm = ref(false);
+// const showSignInForm = ref(false);
 
-const toggleSignIn = () => {
-  showSignInForm.value = !showSignInForm.value;
-};
+// const toggleSignIn = () => {
+//   showSignInForm.value = !showSignInForm.value;
+// };
 
 </script>
 
