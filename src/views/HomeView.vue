@@ -7,7 +7,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import TwoInOne from '../components/TwoInOne.vue'
 import useBackgroundColor from '../utils/useBackgroundColor.js'
 import Navbar from '../components/TheNavbar.vue'
