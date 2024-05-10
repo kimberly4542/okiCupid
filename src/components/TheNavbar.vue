@@ -1,5 +1,5 @@
 <template>
-  <nav :style="{ backgroundColor: bgColor }" class="bg-transparent justify-between items-center h-[100px] lg:px-60 relative hidden md:flex z-50">
+  <nav :style="{ backgroundColor: bgColor }" :toggleSignIn="toggleSignIn" class="bg-transparent justify-between items-center h-[100px] lg:px-60 relative hidden md:flex z-50">
     <div class="flex items-center">
       
       <span class="font-bold text-2xl text-white my-4" style="-webkit-text-stroke: 2px; -webkit-text-stroke-color: #000;">okCupid</span>
@@ -14,6 +14,7 @@
 
   <div v-if="showSignInForm" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-90">
       <div class="bg-white rounded-lg p-11 max-w-xl relative">
+        <!-- <button :toggleSignIn="toggleSignIn" class="absolute top-0 right-0 p-2"> -->
         <button @click="toggleSignIn" class="absolute top-0 right-0 p-2">
           <svg class="w-6 h-6 text-gray-500 hover:text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -50,21 +51,41 @@
 
 </template>
 
-<!-- <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
 
-const showSignIn = ref(false);
-const router = useRouter();
-
-const toggleSignIn = () => {
-  showSignIn.value = !showSignIn.value;
-  router.push({ path: '/signin' });
-};
-</script> -->
+<script lang="ts">
+import { defineComponent } from 'vue';
 
 
-<script>
+export default defineComponent({
+  props: {
+    bgColor: String,
+  },
+  emits: ['toggleSignIn'],
+  data() {
+    return {
+      showSignInForm: false,
+      email: '',
+      password: '',
+      placeholderEmail: 'Email',
+      placeholderPassword: 'Password'
+    };
+  },
+  methods: {
+    signIn() {
+      console.log('Signing in...');
+      this.showSignInForm = false;
+    },
+    toggleSignIn() {
+      this.showSignInForm = !this.showSignInForm;
+      // this.$emit('toggleSignIn');
+      // this.$emit('toggleSignIn', this.showSignInForm);
+      this.$emit('toggleSignIn');
+    }
+  }
+});
+</script>
+
+<!-- <script lang="ts">
 export default {
   props: {
     bgColor: String
@@ -94,7 +115,7 @@ export default {
   }
 };
 
-</script>
+</script> -->
 
 <style>
 #transparentNavbar {

@@ -1,6 +1,7 @@
 <template>
     <div :style="{ backgroundColor: bgColor }">
-        <Navbar :bgColor="bgColor" @toggleSignIn="toggleSignIn"/>
+        <!-- <Navbar :bgColor="bgColor" @toggleSignIn="toggleSignIn"/> -->
+         <Navbar :bgColor="bgColor" :toggleSignIn="toggleSignIn"/>
         <div>
             <TwoInOne  :btnName="'JOIN OKCUPID'"  />
         </div>
@@ -13,6 +14,10 @@ import useBackgroundColor from '../utils/useBackgroundColor.js'
 import Navbar from '../components/TheNavbar.vue'
 
 const { bgColor } = useBackgroundColor();
+
+const toggleSignIn = () => {
+  // Define your toggleSignIn logic here
+}
 </script>
 
 <style scoped>
